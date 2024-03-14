@@ -33,3 +33,17 @@ func (pc *produtController) Create(ctx *gin.Context) {
 
 	ctx.JSON(http.StatusOK, product)
 }
+
+func (pc *produtController) Delete(ctx *gin.Context) {
+
+	id := ctx.Param("id")
+
+	for i, product := range pc.products {
+		if product.ID == id {
+			pc.products = append(pc.products[0:i], pc.products[i+1:]...)
+			return
+		}
+	}
+
+	ctx.JSON(http.StatusOK, pc.products)
+}
