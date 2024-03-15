@@ -7,8 +7,6 @@ import (
 
 func main() {
 
-	// connectionString := "postgresql://postgres:123456@localhost:5432/postgres"
-
 	g := gin.Default()
 
 	routes.AppRoutes(g)
