@@ -11,10 +11,11 @@ func AppRoutes(router *gin.Engine) *gin.RouterGroup {
 
 	v1 := router.Group("/v1")
 	{
-		v1.GET("/products", product.FindAll)
-		// v1.GET("/product/:id")
+		v1.GET("/product/:id", product.GetById)
+		v1.GET("/products", product.GetAll)
 		v1.POST("/product", product.Create)
 		v1.DELETE("/product/:id", product.Delete)
+		v1.PUT("/product", product.Update)
 	}
 
 	return v1
