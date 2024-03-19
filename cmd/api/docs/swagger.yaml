@@ -1,0 +1,104 @@
+definitions:
+  models.Product:
+    properties:
+      amount:
+        type: number
+      available:
+        type: boolean
+      id:
+        type: string
+      name:
+        type: string
+      price:
+        type: number
+    type: object
+host: localhost:3000
+info:
+  contact: {}
+  description: A Product service API in Go using Gin framework
+  title: Product API
+  version: "1.0"
+paths:
+  /api/v1/Product/{id}:
+    delete:
+      description: Remove Product data by id.
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+      summary: Delete Product
+      tags:
+      - product
+  /api/v1/product:
+    post:
+      description: Save product data in mmory.
+      parameters:
+      - description: Create product
+        in: body
+        name: tags
+        required: true
+        schema:
+          $ref: '#/definitions/models.Product'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+      summary: Create Product
+      tags:
+      - product
+    put:
+      description: Update product data in mmory.
+      parameters:
+      - description: Update product
+        in: body
+        name: tags
+        required: true
+        schema:
+          $ref: '#/definitions/models.Product'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+      summary: Update Product
+      tags:
+      - product
+  /api/v1/product/{id}:
+    get:
+      description: Return the tahs whoes productId valu mathes id.
+      parameters:
+      - description: update product by id
+        in: path
+        name: id
+        required: true
+        type: string
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+      summary: Get Single product by id.
+      tags:
+      - product
+  /api/v1/products:
+    get:
+      description: Return list of products.
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/models.Product'
+      summary: Get All products.
+      tags:
+      - product
+swagger: "2.0"
