@@ -1,15 +1,21 @@
 package main
 
 import (
+	_ "github.com/Denis-Carlos-Farias/crud-golang/cmd/api/docs"
+
+	"github.com/Denis-Carlos-Farias/crud-golang/cmd/api/controllers"
 	"github.com/Denis-Carlos-Farias/crud-golang/cmd/api/routes"
-	"github.com/gin-gonic/gin"
 )
 
+// @title 	Product API
+// @version	1.0
+// @description A Product service API in Go using Gin framework
+// @host 	localhost:3000
 func main() {
 
-	g := gin.Default()
+	controller := controllers.NewprodutController()
 
-	routes.AppRoutes(g)
+	gRouter := routes.AppRoutes(controller)
 
-	g.Run(":3000")
+	gRouter.Run(":3000")
 }
