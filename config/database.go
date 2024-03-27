@@ -9,11 +9,11 @@ import (
 )
 
 const (
-	host     = "localhost"
+	host     = "127.0.0.1"
 	port     = 1433
 	user     = "sa"
-	password = "123456"
-	dbName   = "test"
+	password = "MK3ultimate"
+	dbName   = "INVENTCONTROLGO"
 )
 
 func DatabaseConnection() *gorm.DB {
