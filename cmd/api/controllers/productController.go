@@ -4,15 +4,19 @@ import (
 	"net/http"
 
 	"github.com/Denis-Carlos-Farias/crud-golang/cmd/api/models"
+	"github.com/Denis-Carlos-Farias/crud-golang/cmd/domain/interfaces/services"
 	"github.com/gin-gonic/gin"
 )
 
 type ProdutController struct {
 	products []models.Product
+	service  services.IProductService
 }
 
-func NewprodutController() *ProdutController {
-	return &ProdutController{}
+func NewprodutController(service services.IProductService) *ProdutController {
+	return &ProdutController{
+		service: service,
+	}
 }
 
 // FindAllProducts 	godoc
