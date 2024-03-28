@@ -4,7 +4,8 @@ import (
 	"fmt"
 
 	_ "github.com/Denis-Carlos-Farias/crud-golang/cmd/api/docs"
-	//"github.com/Denis-Carlos-Farias/crud-golang/cmd/repository"
+	"github.com/Denis-Carlos-Farias/crud-golang/cmd/repository"
+	"github.com/Denis-Carlos-Farias/crud-golang/cmd/service"
 
 	"github.com/Denis-Carlos-Farias/crud-golang/cmd/api/controllers"
 	"github.com/Denis-Carlos-Farias/crud-golang/cmd/api/routes"
@@ -20,14 +21,12 @@ func main() {
 
 	// Configuração da conexão com o banco de dados
 	db := config.DatabaseConnection()
-
-	//repository:= repository.NewProductRepository(db)
-
 	fmt.Println("Conexão bem-sucedida ao banco de dados SQL Server!")
-
 	db.Table("Product").AutoMigrate(&entities.Product{})
 
-	controller := controllers.NewprodutController()
+	repository := repository.NewProductRepository(db)
+	service := service.NewProductSrvice(repository)
+	controller := controllers.NewprodutController(service)
 
 	gRouter := routes.AppRoutes(controller)
 

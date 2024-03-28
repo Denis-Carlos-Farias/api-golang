@@ -8,6 +8,8 @@ require (
 	github.com/swaggo/files v1.0.1
 	github.com/swaggo/gin-swagger v1.6.0
 	github.com/swaggo/swag v1.16.3
+	gorm.io/driver/sqlserver v1.5.3
+	gorm.io/gorm v1.25.8
 )
 
 require (
@@ -50,6 +52,4 @@ require (
 	golang.org/x/tools v0.19.0 // indirect
 	google.golang.org/protobuf v1.33.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
-	gorm.io/driver/sqlserver v1.5.3 // indirect
-	gorm.io/gorm v1.25.8 // indirect
 )
